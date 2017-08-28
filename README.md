@@ -9,3 +9,7 @@ Users create accounts
 Users can log in
 Users create, view, update and delete shopping lists.
 Users can add, update, view or delete items in a shopping list
+
+## Add the Travis CI badge to the README
+
+https://travis-ci.org/dengsang/ShopppingListApp.svg?branch=master
