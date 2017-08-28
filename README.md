@@ -13,3 +13,9 @@ Users can add, update, view or delete items in a shopping list
 ## Add the Travis CI badge to the README
 
 https://travis-ci.org/dengsang/ShopppingListApp.svg?branch=master
+
+## Add coveralls badge to the README
+
+## MARKDOWN embed
+
+[![Coverage Status](https://coveralls.io/repos/github/dengsang/ShopppingListApp/badge.svg?branch=master)](https://coveralls.io/github/dengsang/ShopppingListApp?branch=master)
