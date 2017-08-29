@@ -44,11 +44,6 @@ def dashboard():
     return render_template('dashboard.html')
 
 
-def app_dict(self, user):
-    self.user = user
-    user = {'username':, 'password': }
-
-
 @app.route('/login', methods=["GET", "POST"])
 def login():
     if request.method == 'POST':
