@@ -2,9 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+  <title> homepage </title>
+
+<!--APPROVE MODAL-->
+        <link rel="stylesheet" href="../static/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="../static/css/jumbotron.css" />
+        <link rel="stylesheet" href="../static/css/bootstrap.css" />
+        <link rel="stylesheet" href="../static/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../static/css/ace.min.css" />
 </head>
+
 <body>
-$END$
+<div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" ><a href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    <li role="presentation"><a href="{{ url_for('login') }}">Sign In</a>
+                    </li>
+                    <li role="presentation" class="active"><a href="#">Sign Up</a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="header smaller lighter blue">Shopping App</h3>
+        </div>
+
+
+<div class="space-6"></div>
+        <div class="jumbotron">
+        <h1>SHOPPING LIST APP</h1>
+        <form class="form-signin">
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <label for="inputName" class="sr-only">Name</label>
+             <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Name" required autofocus>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
+
+            <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="button">Sign up</button>
+      </form>
+      </div>
+
+
+
+        <footer class="footer">
+            <p><p>&copy; Deng 2017</p></p>
+
+        </footer>
+
+</div>
 </body>
 </html>
