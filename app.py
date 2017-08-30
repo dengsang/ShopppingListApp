@@ -59,7 +59,7 @@ def signup():
         register_user = user.db(db_session)
         # print(register_user)
         if register_user == "success":
-            flash('Thanks for registering')
+            flash("Welcome to Shopping App")
             return redirect(url_for('dashboard'))
         return redirect(url_for('signup'))
     return render_template('signup.html', form=form)
