@@ -21,8 +21,9 @@
                     </li>
                     <li role="presentation"><a href="{{ url_for('login') }}">Sign In</a>
                     </li>
-                    <li role="presentation" class="active"><a href="#">Sign Up</a>
+                    <li role="presentation" class="active"><a href="{{ url_for('signup') }}">Sign Up</a>
                     </li>
+
                 </ul>
             </nav>
             <h3 class="header smaller lighter blue">Shopping App</h3>
@@ -32,7 +33,8 @@
 <div class="space-6"></div>
         <div class="jumbotron">
         <h1>SHOPPING LIST APP</h1>
-        <form class="form-signin">
+        <form class="form-signin" action="" method="post" role="form">
+            {{ form.csrf }}
             <label for="inputEmail" class="sr-only">Email address</label>
             <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
             <label for="inputName" class="sr-only">Name</label>
@@ -40,7 +42,7 @@
             <label for="inputPassword" class="sr-only">Password</label>
             <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
 
-            <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="button">Sign up</button>
+            <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
       </form>
       </div>
 
