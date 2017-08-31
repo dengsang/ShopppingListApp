@@ -8,6 +8,9 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret_key'
 app.config['DEBUG'] = True
 users = []
+items = []
+
+
 
 
 @app.route('/')
@@ -25,11 +28,11 @@ class User:
         if user_obj["username"] in user_names:
             return "User already registered"
         users.append(user_obj)
-        print(users)
+        # print(users)
         return "success"
 
     def user_login(self, user_obj):
-        print(users)
+        # print(users)
         emails = [user["email"] for user in users]
         if user_obj["email"] in emails:
             for user in users:
@@ -41,20 +44,20 @@ class User:
 
 class AddList:
     def __init__(self):
-        self.items = []
+        global items
 
     def add_list(self, item_obj):
-        user_items = [item["items"] for item in self.items]
+        user_items = [item["items"] for item in items]
         if item_obj["items"] in user_items:
             return "Item already in a list"
-        self.items.append(item_obj)
+        items.append(item_obj)
         # print(self.items)
         return "success"
 
     def delete_item(self, item_obj):
-        user_items = [item["items"] for item in self.items]
+        user_items = [item["items"] for item in items]
         if item_obj["items"] in user_items:
-            self.items.clear()
+            items.clear()
             flash('Item deleted')
             return "success"
 
