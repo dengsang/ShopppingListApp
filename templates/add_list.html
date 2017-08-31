@@ -1,10 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
+<html>
+  <head>
+    <title>Flask Intro - login page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="../static/css/add_list.css" rel="stylesheet" media="screen">
+      <link href="../static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container">
+
+      <br>
+      <form class="login-form" action='/dashboard' method="POST">
+          <div class="login">
+          <div class="login-screen">
+              <div class="app-title">
+				<h1>ADD ITEM</h1>
+			</div>
+              <div class="login-form">
+                <div class="control-group">
+
+              <input type="text" placeholder="ITEM" name="items">
+              <label class="login-field-icon fui-user" for="list-items"></label>
+
+                </div>
+         <div class="control-group">
+
+             <input type="text" placeholder="QUANTITY" name="quantity">
+             <label class="login-field-icon fui-lock" for="items-quantiny"></label>
+
+         </div>
+              <div class="control-group">
+
+                  <input type="text" placeholder=" PRICE" name="price">
+                  <label class="login-field-icon fui-lock" for="item-price"></label>
+
+         </div>
+        <input type="submit" class="btn btn-primary btn-large btn-block" value="ADD ITEM">
+          </div>
+          </div>
+          </div>
+      </form>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+    </div>
+  </body>
 </html>
