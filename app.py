@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, flash, url_for
-from wtforms import Form, StringField, PasswordField, validators
+from wtforms import Form, StringField, PasswordField, validators, IntegerField
 from wtforms.validators import Email
+
 # from flask_wtf import FlaskForm
 
 app = Flask(__name__)
@@ -38,6 +39,26 @@ class User:
         return "user not found"
 
 
+class AddList:
+    def __init__(self):
+        self.items = []
+
+    def add_list(self, item_obj):
+        user_items = [item["items"] for item in self.items]
+        if item_obj["items"] in user_items:
+            return "Item already in a list"
+        self.items.append(item_obj)
+        # print(self.items)
+        return "success"
+
+    def delete_item(self, item_obj):
+        user_items = [item["items"] for item in self.items]
+        if item_obj["items"] in user_items:
+            self.items.clear()
+            flash('Item deleted')
+            return "success"
+
+
 class RegistrationForm(Form):
     username = StringField('username', [validators.Length(min=4, max=25)])
     email = StringField('email', [validators.Length(min=6, max=35)])
@@ -65,9 +86,25 @@ def signup():
     return render_template('signup.html', form=form)
 
 
+class TelephoneForm(Form):
+    items = StringField('items', [validators.required()])
+    quantity = IntegerField('quantity', [validators.required()])
+    price = IntegerField('price')
+
+
 @app.route('/dashboard')
 def dashboard():
-    return render_template('dashboard.html')
+    form = TelephoneForm(request.form)
+    if request.method == 'POST' and form.validate():
+        user = AddList()
+        db_list = {'items': form.items.data, 'quantity': form.quantity.data, 'price': form.price.data}
+        item_list = user.add_list(db_list)
+        # print(item_list)
+        if item_list == "success":
+            flash('Item Added Successfully')
+            return redirect(url_for('dashboard'))
+        return redirect(url_for('dashboard'))
+    return render_template('dashboard.html', form=form)
 
 
 class EmailPasswordForm(Form):
@@ -91,6 +128,11 @@ def login():
 @app.route('/logout')
 def logout():
     return redirect(url_for('login'))
+
+
+@app.route('/list_form')
+def list_form():
+    return render_template('add_list.html')
 
 
 if __name__ == '__main__':
