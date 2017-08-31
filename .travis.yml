@@ -1,5 +1,5 @@
 language: Flask_python
-  Flask_python: flask 0.12.2 python 3.6.2
+  Flask_python: Flask 0.12.2 python 3.6.2
   py: app travis
   group: stable
   dist: trusty

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-  <title> SHOPPING LIST APP</title>
+  <title> homepage </title>
 
 <!--APPROVE MODAL-->
         <link rel="stylesheet" href="../static/css/bootstrap.min.css" >
@@ -17,11 +17,11 @@
         <div class="header">
             <nav>
                 <ul class="nav nav-pills pull-right">
-                    <li role="presentation" class="active"><a href="#">Home</a>
+                    <li role="presentation" class="active"><a href="{{ url_for('index') }}">Home</a>
                     </li>
-                    <li role="presentation"><a href="#">Sign In</a>
+                    <li role="presentation"><a href="{{ url_for('login') }}">Sign In</a>
                     </li>
-                    <li role="presentation"><a href="showSignUp">Sign Up</a>
+                    <li role="presentation"><a href="{{ url_for('signup') }}">Sign Up</a>
                     </li>
                 </ul>
             </nav>
@@ -33,14 +33,14 @@
         <div class="jumbotron">
             <h1>SHOPPING LIST APP</h1>
             <p class="lead"></p>
-            <p><a class="btn btn-lg btn-success" href="showSignUp" role="button">Sign up</a>
+            <p><a class="btn btn-lg btn-success" href="{{ url_for('signup') }}" role="button">Sign up</a>
             </p>
         </div>
 
 
 
         <footer class="footer">
-            <p>&Deng 2017</p>
+            <p><p>&copy; Deng 2017</p></p>
 
         </footer>
 
