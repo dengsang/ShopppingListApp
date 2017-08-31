@@ -8,30 +8,32 @@
   <body>
     <div class="container">
 
-      <br>
-      <form class="login-form" action="/login" method="post">
-          <div class="login">
-          <div class="login-screen">
-              <div class="app-title">
-				<h1>Please login</h1>
-			</div>
-          <div class="login-form">
-          <div class="control-group">
-        <input type="email" placeholder="Email Address" name="email">
-              <label class="login-field-icon fui-user" for="login-name"></label>
-          </div>
-         <div class="control-group">
-         <input type="password" placeholder="Password" name="password">
-             <label class="login-field-icon fui-lock" for="login-pass"></label>
-         </div>
-        <input type="submit" class="btn btn-primary btn-large btn-block" value="Login">
-          </div>
-          </div>
-          </div>
-      </form>
-      {% if error %}
-        <p class="error"><strong>Error:</strong> {{ error }}
-      {% endif %}
+          <br>
+          <form class="login-form" action="/login" method="post">
+                  <div class="login">
+                      <div class="login-screen">
+                          <div class="app-title">
+                              <h1>Please login</h1>
+                          </div>
+                          <div class="login-form">
+                              <div class="control-group">
+                                <input type="email" placeholder="Email Address" name="email">
+                                  <label class="login-field-icon fui-user" for="login-name"></label>
+                              </div>
+                             <div class="control-group">
+                                 <input type="password" placeholder="Password" name="password">
+                                     <label class="login-field-icon fui-lock" for="login-pass"></label>
+                             </div>
+                            <input type="submit" class="btn btn-primary btn-large btn-block" value="Login">
+                          </div>
+                      </div>
+                  </div>
+          </form>
+          {% if error %}
+            <p class="error"><strong>Error:</strong> {{ error }}
+          {% endif %}
     </div>
+
   </body>
+
 </html>
