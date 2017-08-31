@@ -11,8 +11,6 @@ users = []
 items = []
 
 
-
-
 @app.route('/')
 @app.route('/index')
 def index():
@@ -51,7 +49,7 @@ class AddList:
         if item_obj["items"] in user_items:
             return "Item already in a list"
         items.append(item_obj)
-        # print(self.items)
+        # print(items)
         return "success"
 
     def delete_item(self, item_obj):
@@ -95,7 +93,7 @@ class TelephoneForm(Form):
     price = IntegerField('price')
 
 
-@app.route('/dashboard')
+@app.route('/dashboard', methods=['GET', 'POST'])
 def dashboard():
     form = TelephoneForm(request.form)
     if request.method == 'POST' and form.validate():
