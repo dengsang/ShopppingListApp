@@ -8,7 +8,7 @@ class UserTestCase(unittest.TestCase):
         if self.user_names and self.users is list:
             self.assertIn(self.user_names, self.users)
             self.assertListEqual(self.users.append(self.user_names), self.users)
-            return "Item added to the list successfully"
+            return "User added to the list successfully"
 
     def test_user_login(self, email, password):
         self.email = email
