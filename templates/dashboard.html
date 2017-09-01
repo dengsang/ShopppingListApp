@@ -56,9 +56,22 @@
 
 
 		<tbody aria-relevant="all" aria-live="polite" role="alert">
-			<tr class="odd">
-				<td></td>
-			</tr>
+
+            {% for item in data %}
+                <tr class="odd">
+                    <td>{{ item.get("items") }}</td>
+                    <td>{{ item.get("quantity") }}</td>
+                    <td>{{ item.get("price") }}</td>
+                    <td><button>
+                             <a href="#" role="button" class="btn btn-small btn-danger">
+                                 <i class="icon-trash"></i>
+                                 DELETE
+                             </a>
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
+
 		</tbody>
 	</table>
 			</div>
