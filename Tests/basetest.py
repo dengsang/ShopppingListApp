@@ -1,10 +1,19 @@
 import unittest
+import config
+from flask import Flask
+import app
+from app import app
 
 
-class MyTestCase(unittest.TestCase):
-    def test_something(self):
-        self.assertEqual(True, False)
+class TestCase(unittest.TestCase):
+    def setUp(self):
+        app.config['TESTING'] = True
+        app.config['WTF_CSRF_ENABLED'] = False
+        self.app = app.test_client()
 
+    def tearDown(self):
+        pass
 
 if __name__ == '__main__':
-    unittest.main()
+        unittest.main()
+
