@@ -105,7 +105,22 @@ def dashboard():
             flash('Item Added Successfully')
             return redirect(url_for('dashboard'))
         return redirect(url_for('dashboard'))
-    return render_template('dashboard.html', form=form)
+    return render_template('dashboard.html', form=form, data=items)
+
+
+@app.route('/delete', methods=['GET', 'POST'])
+def delete():
+    form = TelephoneForm(request.form)
+    if request.method == 'POST' and form.validate():
+        user = AddList()
+        db_list = {'items': form.items.data, 'quantity': form.quantity.data, 'price': form.price.data}
+        item_list = user.delete_item(db_list)
+        # print(item_list)
+        if item_list == "success":
+            flash('Item Added Successfully')
+            return redirect(url_for('dashboard'))
+        return redirect(url_for('dashboard'))
+    return render_template('dashboard.html', form=form, data=items)
 
 
 class EmailPasswordForm(Form):
