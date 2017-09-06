@@ -11,15 +11,12 @@ users = []
 items = []
 
 
-@app.route('/')
-@app.route('/index')
-def index():
-    return render_template('index.html', title="homepage")
-
-
 class User:
-    def __init__(self):
+    def __init__(self, username, email, password):
         global users
+        self.username = username
+        self.email = email
+        self.password = password
 
     def db(self, user_obj):
         user_names = [user["username"] for user in users]
@@ -41,8 +38,11 @@ class User:
 
 
 class AddList:
-    def __init__(self):
+    def __init__(self, item, quantity, price):
         global items
+        self.item = item
+        self.quantity = quantity
+        self.price = price
 
     def add_list(self, item_obj):
         user_items = [item["items"] for item in items]
@@ -58,6 +58,12 @@ class AddList:
             items.clear()
             flash('Item deleted')
             return "success"
+
+
+@app.route('/')
+@app.route('/index')
+def index():
+    return render_template('index.html', title="homepage")
 
 
 class RegistrationForm(Form):
