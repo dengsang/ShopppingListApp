@@ -1,4 +1,5 @@
 import unittest
+# from unittest import TestCase
 # import os
 # import config
 import app
@@ -123,7 +124,7 @@ class TestCase(unittest.TestCase):
         response = self.app.get('/dashboard')
         self.assertEqual(response.status_code, 302)
         self.assertIn(b'You should be redirected automatically to target URL:', response.data)
-        self.assertIn(b'/login?next=%2Fuser_profile', response.data)
+        self.assertIn(b'/login?next=%2Fdashboard', response.data)
 
 
 if __name__ == '__main__':
