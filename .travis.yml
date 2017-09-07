@@ -12,7 +12,7 @@ install:
 # command to run tests
 script:
   - pytest Tests/base_test.py
-  _ py.test --basetemp=dir Tests/test_user.py
+  - py.test --basetemp=dir Tests/test_user.py
   - py.test --basetemp=dir Tests/base_test.py
   - py.test Tests/base_test.py --doctest-modules
   # - py.test --cov=app Tests/*
