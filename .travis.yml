@@ -1,6 +1,21 @@
-language: Flask_python
-  Flask_python: flask 0.12.2 python 3.6.2
-  py: app travis
-  group: stable
-  dist: trusty
-  os: Windows
+language: python
+python:
+  - "3.3"
+  - "3.4"
+  - "3.5"
+  - "3.5"
+  - "3.6-dev" # 3.6 development branch
+# command to install dependencies
+install:
+  - pip install -r requirements.txt
+  - pip install coveralls
+# command to run tests
+script:
+  - pytest Tests/base_test.py
+  _ py.test --basetemp=dir Tests/test_user.py
+  - py.test --basetemp=dir Tests/base_test.py
+  - py.test Tests/base_test.py --doctest-modules
+  # - py.test --cov=app Tests/*
+# run coveralls after success
+after_success: coveralls
+cache: pip
