@@ -1,9 +1,5 @@
 import unittest
 from flask import Flask
-# from unittest import TestCase
-# import os
-# import config
-# import app
 
 
 class TestCase(unittest.TestCase):
@@ -12,7 +8,6 @@ class TestCase(unittest.TestCase):
         app.config['TESTING'] = True
         app.config['WTF_CSRF_ENABLED'] = False
         app.config['DEBUG'] = False
-        # os.path.join(app.config['BASEDIR'])
 
         self.app = app.test_client()
 
