@@ -1,16 +1,13 @@
 import unittest
 from flask import Flask
-# from Tests.basetest import TestCase
-# from .app import User
 
 
-class UserTestCase(unittest.TestCase):
+class TestCase(unittest.TestCase):
     def setUp(self):
         app = Flask(__name__)
         app.config['TESTING'] = True
         app.config['WTF_CSRF_ENABLED'] = False
         app.config['DEBUG'] = False
-        # os.path.join(app.config['BASEDIR'])
 
         self.app = app.test_client()
         self.assertEquals(app.debug, False)
@@ -18,6 +15,8 @@ class UserTestCase(unittest.TestCase):
     def tearDown(self):
         pass
 
+
+class UserTestCase(TestCase):
     def login(self, email, password):
         return self.app.post(
             '/login',
