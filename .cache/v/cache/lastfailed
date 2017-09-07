@@ -12,6 +12,5 @@
   "Tests/base_test.py::TestCase::test_valid_login": true,
   "Tests/base_test.py::TestCase::test_valid_logout": true,
   "Tests/base_test.py::TestCase::test_valid_user_registration": true,
-  "Tests/basetest.py": true,
-  "Tests/test_user.py::UserTestCase::test_user_login": true
+  "Tests/basetest.py": true
 }
