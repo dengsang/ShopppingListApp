@@ -13,6 +13,7 @@ install:
 script:
   - pytest Tests/base_test.py
   - py.test --basetemp=dir Tests/test_user.py
+  - py.test --basetemp=dir Tests/test_list.py
   - py.test --basetemp=dir Tests/base_test.py
   - py.test Tests/base_test.py --doctest-modules
   # - py.test --cov=app Tests/*
