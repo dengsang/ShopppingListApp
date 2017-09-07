@@ -32,13 +32,13 @@ class UserTestCase(TestCase):
             self.assertListEqual(self.users.append(self.user_names), self.users)
             return "User added to the list successfully"
 
-    def test_user_login(self, email, password):
+    def test_user_login(self, email='', password=''):
         self.email = email
         self.password = password
-        self.emails = dict(email=email, password=password)
+        emails = dict(email=email, password=password)
         self.app.get('/login', follow_redirects=True)
         response = self.login('email', 'password')
-        if email in self.emails:
+        if email in emails:
             if password == password:
                 self.assertIn('email', response.data)
                 self.assertEqual(password, password, msg='Login and redirect to dashboard')
