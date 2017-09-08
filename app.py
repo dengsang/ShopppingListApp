@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect, flash, url_for
 from wtforms import Form, StringField, PasswordField, validators, IntegerField
 from wtforms.validators import Email
 
-# from flask_wtf import FlaskForm
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret_key'
