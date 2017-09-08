@@ -11,11 +11,13 @@ install:
   - pip install coveralls
 # command to run tests
 script:
-  - pytest Tests/base_test.py
+  - pytest Tests/test_user.py
   - py.test --basetemp=dir Tests/test_user.py
   - py.test --basetemp=dir Tests/test_list.py
-  - py.test --basetemp=dir Tests/base_test.py
-  - py.test Tests/base_test.py --doctest-modules
+  - py.test Tests/test_user.py --doctest-modules
+  - py.test Tests/test_list.py --doctest-modules
+  # - pytest Tests/base_tests.py
+  # - py.test --basetemp=dir Tests/base_tests.py
   # - py.test --cov=app Tests/*
 # run coveralls after success
 after_success: coveralls
